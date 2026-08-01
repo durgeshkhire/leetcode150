@@ -1,0 +1,26 @@
+class RemoveDuplicates80 {
+    public int removeDuplicates(int[] nums) {
+
+        int count=0;
+        int len= nums.length;
+        if(len<2){
+            return len;
+        }
+        List<Integer> list= new ArrayList();
+        list.add(nums[0]);
+        list.add(nums[1]);
+        for(int i=2; i<len; i++){
+            if(nums[i]!=nums[i-1]){
+                list.add(nums[i]);
+            }
+            else if(nums[i]!=nums[i-2]){
+                list.add(nums[i]);
+            }
+        }
+        count= list.size();
+        for(int i=0; i<count; i++){
+            nums[i]=list.get(i);
+        }
+        return count;
+    }
+}
